@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FAEBD7;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment2comp1011.CarViewController">
+     <stylesheets>
+        <URL value="@login.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tableView" layoutX="31.0" layoutY="167.0" prefHeight="192.0" prefWidth="538.0">
+         <columns>
+            <TableColumn fx:id="makeColumn" prefWidth="142.0" style="-fx-background-color: #D3D3D3; -fx-alignment: center;" text="Make" />
+            <TableColumn fx:id="modelColumn" prefWidth="159.0" style="-fx-background-color: #D3D3D3; -fx-alignment: center;" text="Model" />
+            <TableColumn fx:id="yearColumn" prefWidth="114.0" style="-fx-background-color: #D3D3D3; -fx-alignment: center;" text="Year" />
+            <TableColumn fx:id="mileageColumn" prefWidth="122.0" style="-fx-background-color: #D3D3D3; -fx-alignment: center;" text="Mileage" />
+         </columns>
+      </TableView>
+      <GridPane layoutX="31.0" layoutY="22.0" prefHeight="118.0" prefWidth="348.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="Minimum Year" GridPane.rowIndex="1" />
+            <Label text="Maximum Year" GridPane.rowIndex="2" />
+            <FlowPane hgap="10.0" prefHeight="44.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Slider fx:id="minYearSlider" onMouseDragged="#minYearSliderMoved" prefHeight="14.0" prefWidth="120.0">
+                     <FlowPane.margin>
+                        <Insets top="10.0" />
+                     </FlowPane.margin>
+                  </Slider>
+                  <Label fx:id="minYearLabel" text="Label">
+                     <FlowPane.margin>
+                        <Insets top="10.0" />
+                     </FlowPane.margin>
+                  </Label>
+               </children>
+            </FlowPane>
+            <FlowPane hgap="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Slider fx:id="maxYearSlider" onMouseDragged="#maxYearSliderMoved" prefHeight="14.0" prefWidth="120.0">
+                     <FlowPane.margin>
+                        <Insets top="10.0" />
+                     </FlowPane.margin>
+                  </Slider>
+                  <Label fx:id="maxYearLabel" text="Label">
+                     <FlowPane.margin>
+                        <Insets top="10.0" />
+                     </FlowPane.margin>
+                  </Label>
+               </children>
+            </FlowPane>
+            <Label text="Brands" />
+            <ComboBox fx:id="brandComboBox" onAction="#UpdateTableWithSliders" prefHeight="25.0" prefWidth="118.0" style="-fx-background-color: #FFF5EE;" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Label layoutX="48.0" layoutY="369.0" text="Total Cars" />
+      <Label fx:id="label" layoutX="111.0" layoutY="369.0" text="Label" />
+   </children>
+</AnchorPane>
